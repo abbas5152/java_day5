@@ -10,7 +10,7 @@ public class Course {
       System.out.println("course name is "+this.courseName);
       System.out.println("course fee is "+this.courseFee);
   }
-  public  void authenticate(String username,String Password){
+  public static void authenticate(String username,String Password){
       if(username=="Admin" && Password=="1234"){
           Scanner sc1=new Scanner(System.in);
           System.out.println("Enter course name");
@@ -19,12 +19,14 @@ public class Course {
           int i1=sc1.nextInt();
           System.out.println("Enter course fee");
           int i2=sc1.nextInt();
-          this.courseName=s1;
-          this.courseId=i1;
-          this.courseFee=i2;
+          Course c1=new Course();
+          c1.courseName=s1;
+          c1.courseId=i1;
+          c1.courseFee=i2;
 
 
-          displayCourseDetails();
+
+          c1.displayCourseDetails();
 
 
 
@@ -37,8 +39,8 @@ public class Course {
   }
 
     public static void main(String[] args) {
-      Course c1= new Course();
-      c1.authenticate("Admin","1234");
+
+      authenticate("Admin","1234");
 
     }
 }
